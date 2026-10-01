@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para você ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #170812, #3b1025, #160711);
+    color: white;
+    font-family: Georgia, serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hearts span {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    animation: subir 8s linear infinite;
+    opacity: 0;
+}
+
+.hearts span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.hearts span:nth-child(2) { left: 25%; animation-delay: 2s; }
+.hearts span:nth-child(3) { left: 45%; animation-delay: 4s; }
+.hearts span:nth-child(4) { left: 65%; animation-delay: 1s; }
+.hearts span:nth-child(5) { left: 85%; animation-delay: 3s; }
+
+@keyframes subir {
+    0% {
+        transform: translateY(0) scale(.7);
+        opacity: 0;
+    }
+    20% { opacity: .8; }
+    100% {
+        transform: translateY(-110vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+.card {
+    width: 90%;
+    max-width: 390px;
+    min-height: 560px;
+    padding: 35px 27px;
+    border-radius: 25px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.18);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: aparecer 1.2s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.heart {
+    font-size: 55px;
+    animation: pulsar 1.5s infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes pulsar {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #ffb6ce;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.message {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #fff5f8;
+}
+
+.highlight {
+    color: #ff9fbe;
+    font-weight: bold;
+}
+
+.divider {
+    margin: 25px auto;
+    width: 70px;
+    height: 1px;
+    background: #ff8faf;
+}
+
+.final {
+    margin-top: 25px;
+    font-size: 19px;
+    font-style: italic;
+    color: #ffd1df;
+}
+
+.signature {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #ffabc5;
+}
+
+button {
+    margin-top: 28px;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff547f, #ff8caf);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255,70,120,.35);
+}
+
+#surpresa {
+    display: none;
+    margin-top: 20px;
+    animation: aparecer .8s ease;
+    color: #ffd9e4;
+    line-height: 1.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts">
+    <span>❤️</span>
+    <span>♡</span>
+    <span>❤️</span>
+    <span>♡</span>
+    <span>❤️</span>
+</div>
+
+<div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>Para você, meu amor</h1>
+
+    <div class="subtitle">
+        uma pequena lembrança de tudo que sinto por você
+    </div>
+
+    <div class="message">
+        Eu poderia escrever milhares de palavras,
+        mas ainda assim pareceria pouco perto do que
+        sinto quando penso em você.
+        <br><br>
+
+        Você entrou na minha vida e, sem perceber,
+        deixou tudo um pouco mais bonito.
+        Seus áudios, suas mensagens, nossas conversas,
+        nossas brincadeiras e até os momentos simples
+        se tornaram especiais porque são <span class="highlight">com você.</span>
+        <br><br>
+
+        Eu amo poder chamar você de minha.
+        Amo o jeito que você me faz sorrir,
+        amo nossos momentos e amo imaginar
+        todos os momentos que ainda vamos viver.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="final">
+        “Se eu pudesse escolher novamente,
+        escolheria você.”
+    </div>
+
+    <div class="signature">
+        Com todo meu amor,<br>
+        <strong>João ❤️</strong>
+    </div>
+
+    <button onclick="mostrarSurpresa()">
+        💌 Tem uma surpresa...
+    </button>
+
+    <div id="surpresa">
+        Eu te amo, minha passarinha. ❤️
+        <br><br>
+        E espero que esse pequeno cartão
+        consiga te lembrar, mesmo nos dias comuns,
+        o quanto você é importante para mim.
+        <br><br>
+        <strong>Você é meu lugar favorito. ❤️</strong>
+    </div>
+
+</div>
+
+<script>
+function mostrarSurpresa() {
+    const surpresa = document.getElementById("surpresa");
+
+    if (surpresa.style.display === "block") {
+        surpresa.style.display = "none";
+    } else {
+        surpresa.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
